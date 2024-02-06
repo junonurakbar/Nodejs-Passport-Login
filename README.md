@@ -4,7 +4,6 @@ npm install
 - create a .env file and write some variables in there, you can change the value based on your psql configuration:
   PORT=3000
   SESSION_SECRET=secret
-  
   DB_USER=postgres
   DB_HOST=localhost
   DB_PORT=5432
