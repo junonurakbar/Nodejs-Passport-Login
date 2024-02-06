@@ -1,16 +1,46 @@
-<h1>Login</h1>
-<% if (messages.error) { %>
-  <%= messages.error %>
-<% } %>
-<form action="/login" method="POST">
-  <div>
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Login Page</title>
+</head>
+<body class="bg-slate-800">
+  <div class="w-full flex justify-start h-12 place-items-center my-2 text-white/90">
+    <div class="flex gap-x-8 mx-20 my-5">
+      <a href="/" class="text-xl rounded-lg bg-slate-900 py-0.5 px-1 hover:bg-slate-700">Home</a>
+      <a href="/login" class="text-xl rounded-lg bg-slate-900 py-0.5 px-1 hover:bg-slate-700">Login</a>
+      <a href="/register" class="text-xl rounded-lg bg-slate-900 py-0.5 px-1 hover:bg-slate-700">Register</a>
+    </div>
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" required>
+
+  <div class="flex justify-center items-center h-700">
+    <div class="w-2/3 p-4">
+      <h1 class="text-3xl mb-5 text-white/90 text-center">Login</h1>
+      <% if (typeof message !== 'undefined') { %>
+        <p class="text-center text-xl text-white/90 mb-5"><%= message %></p>
+      <% } %>
+      <form action="" method="post">
+        <div class="flex flex-col">
+          <label for="email" class="text-xl text-white/90 mb-2 relative sm:ml-7 sm:left-8 lg:left-20 lg:ml-7 md:left-10 md:ml-10">Email</label>
+          <div class="flex justify-center mb-3">
+            <input type="email" name="email" id="email" class="rounded-md p-1 w-3/4 text-xl" required autocomplete="off">
+          </div>
+
+          <label for="password" class="text-xl text-white/90 mb-2 relative sm:ml-7 sm:left-8 lg:left-20 lg:ml-7 md:left-10 md:ml-10">Password</label>
+          <div class="flex justify-center mb-3">
+            <input type="password" name="password" id="password" class="rounded-md p-1 w-3/4 text-xl" required autocomplete="off">
+          </div>
+        </div>
+
+        <div class="flex justify-center my-2 w-full">
+          <button type="submit" class="w-3/4 border-2 rounded-md place-items-center p-1 text-xl text-slate-300 mb-2 hover:bg-gradient-to-r from-slate-400 to-slate-500 hover:text-slate-800">Login</button>
+        </div>
+
+      </form>
+      <span class="flex justify-center text-white">Don't have an account? <a href="/register" class="underline text-blue-500 ml-1"> Click here</a></span>
+    </div>
   </div>
-  <button type="submit">Login</button>
-</form>
-<a href="/register">Register</a>
+</body>
+</html>

@@ -1,17 +1,58 @@
-<h1>Register</h1>
-<form action="/register" method="POST">
-  <div>
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Register Page</title>
+</head>
+<body class="bg-slate-800">
+  <div class="w-full flex justify-start h-12 place-items-center my-2 text-white/90">
+    <div class="flex gap-x-8 mx-20 my-5">
+      <a href="/" class="text-xl rounded-lg bg-slate-900 py-0.5 px-1 hover:bg-slate-700">Home</a>
+      <a href="/login" class="text-xl rounded-lg bg-slate-900 py-0.5 px-1 hover:bg-slate-700">Login</a>
+      <a href="/register" class="text-xl rounded-lg bg-slate-900 py-0.5 px-1 hover:bg-slate-700">Register</a>
+    </div>
   </div>
-  <div>
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
+
+  <div class="flex justify-center items-center h-700">
+    <div class="w-2/3 p-4">
+      <h1 class="text-3xl mb-5 text-white/90 text-center">Create an account</h1>
+      <form action="/register" method="post">
+        <div class="flex flex-col">
+          <label for="name" class="text-xl text-white/90 mb-2 relative sm:ml-7 sm:left-8 lg:left-20 lg:ml-7 md:left-10 md:ml-10">Name</label>
+          <div class="flex justify-center mb-3">
+            <input type="text" name="name" id="name" class="rounded-md p-1 w-3/4 text-xl" required autocomplete="off">
+          </div>
+
+          <label for="email" class="text-xl text-white/90 mb-2 relative sm:ml-7 sm:left-8 lg:left-20 lg:ml-7 md:left-10 md:ml-10">Email</label>
+          <div class="flex justify-center mb-3">
+            <input type="email" name="email" id="email" class="rounded-md p-1 w-3/4 text-xl" required autocomplete="off">
+          </div>
+
+          <label for="password" class="text-xl text-white/90 mb-2 relative sm:ml-7 sm:left-8 lg:left-20 lg:ml-7 md:left-10 md:ml-10">Password</label>
+          <div class="flex justify-center mb-3">
+            <input type="password" name="password" id="password" class="rounded-md p-1 w-3/4 text-xl" required autocomplete="off">
+          </div>
+          
+          <label for="passwordConfirm" class="text-xl text-white/90 mb-2 relative sm:ml-7 sm:left-8 lg:left-20 lg:ml-7 md:left-10 md:ml-10">Confirm Password</label>
+          <div class="flex justify-center mb-3">
+            <input type="password" name="passwordConfirm" id="passwordConfirm" class="rounded-md p-1 w-3/4 text-xl" required autocomplete="off">
+          </div>  
+        </div>
+
+        <div class="flex justify-center my-2 w-full">
+          <button type="submit" class="w-3/4 border-2 rounded-md place-items-center p-1 text-xl text-slate-300 mb-2 hover:bg-gradient-to-r from-slate-400 to-slate-500 hover:text-slate-800">Submit</button>
+        </div>
+
+      </form>
+      <span class="flex justify-center text-white">Already have an account? <a href="/login" class="underline text-blue-500 ml-1"> Login here</a></span>
+    </div>
   </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" required>
-  </div>
-  <button type="submit">Register</button>
-</form>
-<a href="/login">Login</a>
+  <% if (typeof message !== 'undefined') { %>
+    <div class="flex justify-center block-inline">
+      <h1 class="text-center text-2xl text-red-800 bg-slate-300 rounded-lg"><%= message %></h1>
+    </div>
+   <% } %>
+</body>
+</html>
