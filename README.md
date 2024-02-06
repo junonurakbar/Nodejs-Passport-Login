@@ -12,7 +12,7 @@ npm install
 
 - open postgreSQL, create a database "login_psql" with a table named "users".
   create several columns:
-  - id (Data type: SERIAL, FOREIGN KEY)
+  - id (Data type: SERIAL, PRIMARY KEY)
   - name (Data type: VARCHAR(255))
   - email (Data type: VARCHAR(255))
   - password (Data type: VARCHAR(255))
